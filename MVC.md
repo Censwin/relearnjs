@@ -12,7 +12,7 @@ age: 18
 var model = {
   getdata: () => {
   return data
-  }
+  },
   init: () => {},
   fetch: () => {},
   save: () => {},
