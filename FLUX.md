@@ -2,7 +2,7 @@
 
 ## 1. 什么是flux？
 
-   Flux 是一种架构模式；是单向数据流的鼻祖；redux的前身；flux推翻了MVC框架；（MVC见另外一篇文档）
+   Flux 是一种架构模式；是单向数据流的鼻祖；redux的前身；如Reflux\Fluxible等；flux推翻了MVC框架；（MVC见另外一篇文档）
 
 ## 2. flux 有4部分组成：Action、Dispatcher、Store、View.   
 
