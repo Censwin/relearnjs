@@ -5,7 +5,14 @@
 首先 M ： model 可以理解为各种方法函数的集合，用于处理数据的操作，包括数据逻辑、数据请求与数据存储等功能。如：
 
 ```js
+var data = {
+name: '',
+age: 18
+}
 var model = {
+  getdata: () => {
+  return data
+  }
   init: () => {},
   fetch: () => {},
   save: () => {},
