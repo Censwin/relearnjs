@@ -79,10 +79,12 @@ DataStore.dispatchToken = Dispatcher.register((action) => {
 
 view怎么触发？
 
-```
+```js
 import {increment} from 'actions' // 上面我们定义的
 <button onClick={increment('name')}>修改</button>
 ```
+
+![avatar](flux.png)
 
 ## flux 的不足(p54-p55)
 
