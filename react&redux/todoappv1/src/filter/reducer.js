@@ -1,8 +1,11 @@
-/*
- * @Author: your name
- * @Date: 2021-01-31 16:16:44
- * @LastEditTime: 2021-01-31 16:16:44
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /my-first-react/src/filter/reducer.js
- */
+import {SET_FILTER} from './actionTypes.js';
+import {FilterTypes} from '../constants.js'
+
+export default (state = FilterTypes.ALL, action) => {
+  switch (action.type) {
+    case SET_FILTER:
+      return action.filter
+    default:
+      return state;
+  }
+}

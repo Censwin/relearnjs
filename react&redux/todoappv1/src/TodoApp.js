@@ -4,8 +4,8 @@ import {view as Filter} from './filter'
 function TodoApp () {
   return (
     <div>
-      <Todos></Todos>
-      <Filter></Filter>
+      <Todos />
+      <Filter />
     </div>
   )
 }
