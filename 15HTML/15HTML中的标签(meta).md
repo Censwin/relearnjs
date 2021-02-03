@@ -4,6 +4,32 @@ head标签必须是第一个
 
 title 太简单不讲了
 
+- link标签 
+
+  1. **可用于将PC版页面指向移动版页面，将移动版页面指向PC版页面，这样有利于搜索引擎，对不同设备的用户提供不同类型的页面**
+
+     PC版本页面head应添加
+
+     ```html
+     <link rel="alternate" media="only screen and (max-width:640px)" href="http://m.mobile.com" >
+     ```
+
+     移动版页面应添加
+
+     ```html
+     <link rel="canonical" href="http://wwww.pc.com" >
+     ```
+
+  2. **用于不同css样式表之间切换控制效果**
+
+     ```html
+     <link href="default.css" rel="stylesheet" type="text/css" title="默认">
+     <link href="red.css" rel="alternate stylesheet" type="text/css" title="红色">
+     <link href="green.css" rel="alternate stylesheet" type="text/css" title="绿色">
+     ```
+
+     
+
 - base标签
 
   会给页面里所有的url相对地址提供一个基础（包括src、href）
