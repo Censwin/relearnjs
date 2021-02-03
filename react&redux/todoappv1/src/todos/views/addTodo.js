@@ -4,6 +4,15 @@ class AddTodo extends Component {
   refInput (node) {
     this.input = node
   }
+  onSubmit (ev) {
+    ev.preventDefault();
+    const inputVal = this.input
+    if(!inputVal.value.trim()) {
+      return false
+    }
+    this.props.onAdd(inputVal.value)
+    inputVal.value = ''
+  }
   render () {
     return (
       <div>
