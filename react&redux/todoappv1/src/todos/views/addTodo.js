@@ -1,6 +1,15 @@
 import React,{Component} from 'react';
-
+import {connect} from 'react-redux';
+import {addTodo} from '../actions.js';
 class AddTodo extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+    this.onSubmit = this.onSubmit.bind(this);
+    this.refInput = this.refInput.bind(this)
+  }
   refInput (node) {
     this.input = node
   }
@@ -15,13 +24,20 @@ class AddTodo extends Component {
   }
   render () {
     return (
-      <div>
+      <div className="add-todo">
         <form onSubmit={this.onSubmit}>
-          <input placeholder="请输入待办事项" ref={this.refInput} />
-          <button type="submit">添加</button>
+          <input className="new-todo" placeholder="请输入待办事项" ref={this.refInput} />
+          <button className="add-btn" type="submit">添加</button>
         </form>
       </div>
     )
   }
 }
-export default AddTodo
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAdd: (text) => {
+      dispatch(addTodo(text));
+    }
+  }
+};
+export default connect(null, mapDispatchToProps)(AddTodo);

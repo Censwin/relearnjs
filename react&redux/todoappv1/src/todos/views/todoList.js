@@ -1,8 +1,12 @@
 import React from 'react';
 import TodoItem from './todoItem'
-export default function TodoList({todos, onToggleTodo, onRemoveTodo}) {
+import {toggleTodo, removeTodo} from '../actions.js';
+import {FilterTypes} from '../../constants.js';
+import {connect} from 'react-redux';
+
+const TodoList = ({todos, onToggleTodo, onRemoveTodo}) => {
   return (
-    <ul>
+    <ul className="todo-list">
       {
         todos.map(item => (
           <TodoItem
@@ -17,3 +21,40 @@ export default function TodoList({todos, onToggleTodo, onRemoveTodo}) {
     </ul>
   )
 }
+const selectVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case FilterTypes.ALL:
+      return todos;
+    case FilterTypes.COMPLETED:
+      return todos.filter(item => item.completed);
+    case FilterTypes.UNCOMPLETED:
+      return todos.filter(item => !item.completed);
+    default:
+      throw new Error('unsupported filter');
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    todos: selectVisibleTodos(state.todos, state.filter)
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onToggleTodo: (id) => {
+      dispatch(toggleTodo(id));
+    },
+    onRemoveTodo: (id) => {
+      dispatch(removeTodo(id));
+    }
+  };
+};
+
+/*
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  onToggleTodo: toggleTodo,
+  onRemoveTodo: removeTodo
+}, dispatch);
+*/
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
