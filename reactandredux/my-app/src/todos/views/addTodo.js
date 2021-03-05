@@ -1,11 +1,23 @@
 import React, {Component} from 'react'
 
 class Addtodo extends Component {
+  constructor(){
+    super(...arguments)
+    this.refInput = this.refInput.bind(this)
+  }
+  onSubmit(ev){
+    ev.preventDefault();
 
-  Addtodo = () => { 
-    const onSubmit = () => {
-      console.log(123);
+    const input = this.input;
+    if (!input.value.trim()) {
+      return;
     }
+
+    this.props.onAdd(input.value);
+    input.value = '';
+  }
+  refInput(node) {
+    this.input = node
   }
   render () {
     return (
@@ -16,7 +28,7 @@ class Addtodo extends Component {
           添加
         </button>
       </form>
-    </div>
+      </div>
     )
   }
 }
