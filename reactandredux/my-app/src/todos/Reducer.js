@@ -21,6 +21,8 @@ export default (state = [], action) => {
       })
     }
     case actionType.REMOVE: {
+      console.log(state);
+      console.log(action);
       return state.filter(item => item.id != action.id)
     }
     default: {
