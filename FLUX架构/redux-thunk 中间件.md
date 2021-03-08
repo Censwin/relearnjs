@@ -4,6 +4,6 @@ redux 的单向数据流是同步操作，dispatch 派发出去的action对象�
 
 从头到尾都没有执行异步操作的机会，因此需要redux-thunk作为中间件执行异步操作。
 
-
+![avatar](redux_thunk.png)
 
 react =>redux =>React-Redux => react-router => redux-thunk
