@@ -1,18 +1,6 @@
-import {createStore, combineReducers} from 'redux'
-import {reducer as todoReducer} from './todos'
-const initvalue = {
-  todos: [
-    {
-      text: 'test',
-      completed: false,
-      id: 0
-    },
-  ],
-  filter: 'all'
-}
+import {createStore} from 'redux';
+import reducer from './reducer'
+const init = {list:[9,9,9]}
 
-const allreducer = combineReducers({todos: todoReducer})
-const store = createStore(allreducer, initvalue)
-console.log(store.getState())
-
+const store = createStore(reducer,init)
 export default store
